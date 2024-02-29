@@ -1,6 +1,8 @@
 import React from 'react';
 import {
+    SafeAreaView,
     StyleSheet,
+    Pressable,
     View,
     Text,
     ScrollView,
@@ -14,7 +16,7 @@ import {
             <View style={styles.form}>
                 <TextInput
                 style={styles.input}
-                placeholder="Add a new task..."
+                placeholder="Add a new task in the list"
                 />
                 <Button title="Add" />
             </View>

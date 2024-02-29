@@ -10,50 +10,22 @@ import {
     Button
   } from 'react-native';
   
-  export default function ToDoList(props) {
-  return (
-    <>
+  export default function ToDoList({ tasks }) {
+    return (
       <ScrollView>
-      <View style={styles.container}>
-        <Pressable>
-          <View style={[styles.taskContainer, styles.completed]}>
-            <View style={styles.circle}>
-              <View style={styles.checkmark} />
-            </View>
-            <Text style={styles.taskText}>Wake Up at 8am</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.taskContainer , styles.completed]}>
-            <View style={styles.circle} />
-            <Text style={styles.taskText}>Attend Class</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.taskContainer]}>
-            <View style={styles.circle}>
-              <View style={styles.checkmark} />
-            </View>
-            <Text style={styles.taskText}>Complete The Assignment</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.taskContainer]}>
-            <View style={styles.circle} />
-            <Text style={styles.taskText}>Go To Job at 5pm</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={[styles.taskContainer]}>
-            <View style={styles.circle} />
-            <Text style={styles.taskText}>Go to Bed at 12am</Text>
-          </View>
-        </Pressable>
-      </View>
-    </ScrollView>
-    </>
-  );
-}
+        <View style={styles.container}>
+          {tasks.map((task, index) => (
+            <Pressable key={index}>
+              <View style={[styles.taskContainer, styles.incompleteTask]}>
+                <View style={styles.circle} />
+                <Text style={styles.taskText}>{task}</Text>
+              </View>
+            </Pressable>
+          ))}
+        </View>
+      </ScrollView>
+    );
+  }
 
 const styles = StyleSheet.create({
   container: {
@@ -72,9 +44,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#ccc',
     backgroundColor: '#f8f8f8',
-  },
-  completed: {
-    backgroundColor: '#e0e0e0',
   },
   taskText: {
     fontSize: 16,
