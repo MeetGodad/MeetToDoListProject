@@ -6,6 +6,11 @@ import ToDoForm from './components/ToDoForm';
 import useState from 'react';
 
 function App() {
+  
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]);
+  };
+
   const [tasks , setTasks] = React.useState([
      'Wake Up at 8am', 
      'Attend Class',
@@ -16,7 +21,7 @@ function App() {
   return (
     <SafeAreaView>
       <ToDoList tasks={tasks} />
-      <ToDoForm />
+      <ToDoForm  addTask={addTask} />
     </SafeAreaView>
   );
 }

@@ -10,15 +10,21 @@ import {
     Button
   } from 'react-native';
   
-  export default function ToDoForm(props) {
+  export default function ToDoForm( {addTask}) {
+
+    const [taskText, setTaskText] = React.useState('');
+  
+
     return (
         <>
             <View style={styles.form}>
                 <TextInput
                 style={styles.input}
                 placeholder="Add a new task in the list"
+                onChangeText = {(text) => setTaskText(text)}
+                value={taskText}
                 />
-                <Button title="Add" />
+                <Button title="Add Task" onPress={() => addTask(taskText)} />
             </View>
         </>
     );
@@ -40,6 +46,6 @@ const styles = StyleSheet.create({
       paddingVertical: 5,
       marginRight: 10,
       borderRadius: 5,
-      backgroundColor : '#2F4F4F'
+      backgroundColor : '#f6f7f8'
     },
   });
