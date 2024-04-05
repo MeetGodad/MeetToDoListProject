@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: 1,
     borderColor: '#ccc',
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#f6f7f8',
   },
   taskText: {
     fontSize: 16,
