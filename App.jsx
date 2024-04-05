@@ -2,7 +2,7 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import useState from 'react';
-import { NavigationContainer } from '@react-navigation/native';r
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import AboutScreen from './src/screens/AboutScreen';
