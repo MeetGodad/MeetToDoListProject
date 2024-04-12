@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button, SafeAreaView, View , StyleSheet} from 'react-native';
+import { Button, SafeAreaView, View , StyleSheet , Pressable , Text} from 'react-native';
 import ToDoList from '../components/ToDoList';
 import ToDoForm from "../components/ToDoForm";
 
@@ -13,25 +13,16 @@ const HomeScreen = ( {navigation}) =>{
     setTasks([...tasks, taskText]);
   };
 
-  const [tasks , setTasks] = React.useState([
-     'Wake Up at 8am', 
-     'Attend Class',
-     'Complete The Assignment',
-     'Go to Gym',
-  ]);
+  const [tasks , setTasks] = React.useState([]);
 
   return (
     <MainLayout >
       <SafeAreaView>
         <ToDoList tasks={tasks} />
         <ToDoForm  addTask={addTask} />
-        <View style={styles.button}>
-            <Button 
-                    title="Go to About" 
-                    onPress={() => navigation.navigate('AboutScreen')} 
-                    color={'#841584'}
-                />
-        </View> 
+          <Pressable style={styles.button}  onPress={() => navigation.navigate('AboutScreen')}>
+            <Text style={styles.btnText}> Go to About </Text>
+          </Pressable>
      </SafeAreaView>
     </MainLayout>
   );
@@ -41,7 +32,20 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   button: {
+    backgroundColor: '#841584',
+    padding: 10,
+    borderRadius: 5,
     margin: 10,
+    height: 40,
+    width: 200,
+    alignSelf: 'center',  
   },
+
+  btnText: {
+    color: 'white',
+      fontSize: 16,
+      textAlign: 'center',
+  },
+  
 });
 
